@@ -1,4 +1,4 @@
-# Django Admin example
+# Django admin example
 
 ## Описание проекта
 
@@ -72,7 +72,7 @@
 
 ## Схема базы данных
 
-#### Таблица Author
+### Таблица Author
 
 | Поле       | Тип данных   | Описание                      |
 |------------|--------------|-------------------------------|
@@ -82,7 +82,7 @@
 | birth_date | DateField    | дата рождения                 |
 | rating     | DecimalField | рейтинг                       |
 
-#### Таблица Book
+### Таблица Book
 
 | Поле             | Тип данных   | Описание                                  |
 |------------------|--------------|-------------------------------------------|
@@ -94,12 +94,42 @@
 | price            | DecimalField | стоимость                                 |
 | author_id        | ForeignKey   | ссылка на автора, связь "многие к одному" |
 
-#### Таблица Collection
+### Таблица Collection
 
 | Поле  | Тип данных      | Описание                                             |
 |-------|-----------------|------------------------------------------------------|
 | id    | AutoField       | автоматический первичный ключ                        |
 | title | CharField       | название                                             |
 | books | ManyToManyField | книги, входящие в подборку, связь "многие ко многим" |
+
+## Данные для базы данных
+
+### Данные для модели Author
+
+| ID  | Name               | Biography                                                                                  | Birth Date | Rating |
+|-----|--------------------|--------------------------------------------------------------------------------------------|------------|--------|
+| 1   | Leo Tolstoy        | A famous Russian author known for his epic novels like War and Peace and Anna Karenina.    | 1828-09-09 | 4.95   |
+| 2   | Jane Austen        | English novelist known for romantic fiction, particularly Pride and Prejudice.             | 1775-12-16 | 4.80   |
+| 3   | Mark Twain         | American writer acclaimed for his wit and humor. Author of Adventures of Huckleberry Finn. | 1835-11-30 | 4.75   |
+| 4   | Arthur Conan Doyle | British writer best known for his detective stories featuring Sherlock Holmes.             | 1859-05-22 | 4.85   |
+| 5   | J.K. Rowling       | British author best known for the Harry Potter series.                                     | 1965-07-31 | 4.90   |
+
+### Данные для модели Book
+
+| ID  | Title                                   | Description                                                                 | Publication Date | Pages | Price | Author ID |
+|-----|-----------------------------------------|-----------------------------------------------------------------------------|------------------|-------|-------|-----------|
+| 1   | War and Peace                           | An epic novel about the history of Russia during the Napoleonic era.        | 1869-01-01       | 1225  | 39.99 | 1         |
+| 2   | Anna Karenina                           | A novel about love and betrayal among Russian aristocracy.                  | 1877-01-01       | 864   | 29.99 | 1         |
+| 3   | Pride and Prejudice                     | A romantic novel that critiques the societal norms of 19th century England. | 1813-01-28       | 432   | 19.99 | 2         |
+| 4   | Adventures of Huckleberry Finn          | A novel about a young boy's adventures on the Mississippi River.            | 1884-12-10       | 366   | 24.99 | 3         |
+| 5   | The Adventures of Sherlock Holmes       | A collection of short stories featuring the detective Sherlock Holmes.      | 1892-10-14       | 307   | 27.99 | 4         |
+| 6   | Harry Potter and the Sorcerer's Stone   | The first book in the Harry Potter series about a young wizard.             | 1997-06-26       | 309   | 34.99 | 5         |
+| 7   | Harry Potter and the Chamber of Secrets | The second book in the Harry Potter series.                                 | 1998-07-02       | 341   | 34.99 | 5         |
+
+### Данные для модели Collection
+| ID  | Title              | Books   |
+|-----|--------------------|---------|
+| 1   | irongun collection | 6, 7    |
+| 2   | alex collection    | 2, 4, 7 |
 
 С проектом можно взаимодействовать через административную панель. Она предоставляет возможности для просмотра, изменения и поиска по данным всех трёх моделей.
